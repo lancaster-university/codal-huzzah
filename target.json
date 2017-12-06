@@ -3,9 +3,12 @@
     "processor":"ESP8266",
     "architecture":"XTENSA",
     "toolchain":"XTENSA_GCC",
-    "post_process":"",
-    "generate_bin":true,
-    "generate_hex":true,
+    "post_process":{
+        "command":"python ./utils/esptool.py elf2image --version=2 <OUTPUT_ELF_LOCATION> -o <CODAL_APP_OUTPUT_DIR>/<OUTPUT_ELF_NAME>.bin",
+        "depends":"ELF"
+    },
+    "generate_bin":false,
+    "generate_hex":false,
     "config":{
         "DEVICE_SRAM_BASE":"0x20000000",
         "DEVICE_SRAM_END":"0x20010000",
