@@ -26,8 +26,8 @@
     "cpp_flags": "-mlongcalls -std=c++11 -fwrapv -fno-rtti -fno-threadsafe-statics -fno-exceptions -fno-unwind-tables -Wl,--gc-sections -Wl,--sort-common -Wl,--sort-section=alignment -Wno-array-bounds", 
     "cpu_opts": "", 
     "device": "HUZZAH", 
-    "generate_bin": true, 
-    "generate_hex": true, 
+    "generate_bin": false, 
+    "generate_hex": false, 
     "libraries": [
         {
             "branch": "d7270e90d0b910f803c8d87024d5696bca9ffd41", 
@@ -36,15 +36,18 @@
             "url": "https://github.com/lancaster-university/codal-core"
         }, 
         {
-            "branch": "e69dabad13b99e7215b8701cbdafd9f35fcbcb96", 
+            "branch": "bc106b5e33aad93ede9e623a921dc7f6b3794d1b", 
             "name": "codal-esp8266", 
             "type": "git", 
             "url": "https://github.com/lancaster-university/codal-esp8266"
         }
     ], 
     "linker_flags": " -Wl,--gc-sections -Wl,--wrap,atexit -Wl,--start-group -Wl,--end-group", 
-    "post_process": "", 
+    "post_process": {
+        "command": "python ./utils/esptool.py elf2image --version=2 <OUTPUT_ELF_LOCATION> -o <CODAL_APP_OUTPUT_DIR>/<OUTPUT_ELF_NAME>.bin", 
+        "depends": "ELF"
+    }, 
     "processor": "ESP8266", 
-    "snapshot_version": "v0.0.2", 
+    "snapshot_version": "v0.0.3", 
     "toolchain": "XTENSA_GCC"
 }
