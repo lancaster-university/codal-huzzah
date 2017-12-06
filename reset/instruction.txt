@@ -1,0 +1,1 @@
+python <ESP_TOOL_LOCATION> --port <ESP_SERIAL_PORT> write_flash 0x00000 boot_v1.6.bin 0x1000 user1.1024.new.2.bin 0x3fc000 esp_init_data_default.bin 0x7e000 blank.bin 0x3fe000 blank.bin 
