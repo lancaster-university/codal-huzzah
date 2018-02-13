@@ -14,7 +14,7 @@
         "DEVICE_SRAM_END":"0x20010000",
         "DEVICE_STACK_BASE":"DEVICE_SRAM_END",
         "DEVICE_STACK_SIZE":2048,
-        "DEVICE_HEAP_ALLOCATOR":1,
+        "DEVICE_HEAP_ALLOCATOR":0,
         "DEVICE_TAG":0,
         "SCHEDULER_TICK_PERIOD_US":4000,
         "EVENT_LISTENER_DEFAULT_FLAGS":"MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY",
@@ -33,7 +33,7 @@
     "cpu_opts":"",
     "asm_flags":"",
     "c_flags":"-mlongcalls -std=c99 -Wno-array-bounds",
-    "cpp_flags":"-mlongcalls -std=c++11 -fwrapv -fno-rtti -fno-threadsafe-statics -fno-exceptions -fno-unwind-tables -Wl,--gc-sections -Wl,--sort-common -Wl,--sort-section=alignment -Wno-array-bounds",
+    "cpp_flags":"-Os -g -mlongcalls -mtext-section-literals -fno-exceptions -fno-rtti -falign-functions=4 -std=c++11 -MMD -ffunction-sections -fdata-sections -mlongcalls -std=c++11 -fwrapv -fno-rtti -fno-threadsafe-statics -fno-exceptions -fno-unwind-tables -Wl,--gc-sections -Wl,--sort-common -Wl,--sort-section=alignment -Wno-array-bounds",
     "linker_flags":" -Wl,--gc-sections -Wl,--wrap,atexit -Wl,--start-group -Wl,--end-group",
     "libraries":[
         {
